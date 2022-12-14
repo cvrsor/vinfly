@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require "vinfly"
+
+#the following if-else statement allows the CLI to be executed without explicitly defining a task's name (decode_vin)
+if ARGV.include?("--service")
+    #run the gRPC service task
+    ARGV.unshift('run_grpc_service')
+elsif ARGV == ['help']
+    #if help is the only argument, show help for the default_task
+    ARGV.push(Vinfly::CLI.default_task)
+else
+    #run the default_task (decode_vin), unless the first argument is an existing task
+    ARGV.unshift(Vinfly::CLI.default_task) unless Vinfly::CLI.all_tasks.has_key?(ARGV[0])
+end
+
+Vinfly::CLI.start(ARGV)

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+
+option java_multiple_files = true;
+option java_package = "io.grpc.decodevin";
+option java_outer_classname = "DecodeVinProto";
+option objc_class_prefix = "VIN";
+
+package decodevin;
+
+// service definition
+service Vin {
+  // Decodes a VIN number
+  rpc DecodeVin (VinRequest) returns (VinReply) {}
+}
+
+// The request message containing the VIN number.
+message VinRequest {
+  string vinnumber = 1;
+}
+
+// The response message containing the vPIC API results.
+message VinReply {
+  //string results = 1;
+  google.protobuf.Struct results = 1;
+}
+
+// Ruby grpc-tools command:
+//grpc_tools_ruby_protoc -I ./protos --ruby_out=./lib --grpc_out=./lib ./protos/vin.proto
