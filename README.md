@@ -4,7 +4,7 @@ Vinfly is a command line utility, written in Ruby, that accepts a VIN number and
 
 ## Live Demo
 
-You can test the utility on Replit: **[https://replit.com/@Cvrsor/vinfly](https://replit.com/@Cvrsor/vinfly#main.rb)**  
+You can test the utility on Replit: **[https://replit.com/@Cvrsor/vinfly](https://replit.com/@Cvrsor/vinfly)**  
 Hit the 'Play' icon to start the VM. You can then enter any **vinfly** commands at the prompt:
 
 ```ruby
